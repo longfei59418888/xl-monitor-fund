@@ -1,0 +1,31 @@
+{
+  "name": "xl-monitor-fund",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start ./www/index.js  --name monitor-fund",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longfei59418888/xl-monitor-fund.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longfei59418888/xl-monitor-fund/issues"
+  },
+  "homepage": "https://github.com/longfei59418888/xl-monitor-fund#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.5",
+    "ejs": "^3.1.5",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.0",
+    "node-schedule": "^2.0.0"
+  }
+}

@@ -1,0 +1,9 @@
+# ignore .svn
+#
+.svn
+
+.idea/
+node_modules/
+SDK_v5/node_modules/
+*/node_modules/
+.DS_Store
