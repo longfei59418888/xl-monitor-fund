@@ -32,10 +32,10 @@ const option = function (value, fmt) {
 }
 
 let CACHE = {}
-let LENGTH = 100
-schedule.scheduleJob({hour: 15, minute: 32, dayOfWeek: [1, 2, 3, 4, 5]}, function () {
+let LENGTH = 200
+schedule.scheduleJob({hour: 0, minute: 1, dayOfWeek: [1, 2, 3, 4, 5]}, function () {
     CACHE = {}
-    LENGTH = 100
+    run()
 });
 
 async function run() {
