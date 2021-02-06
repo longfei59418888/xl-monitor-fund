@@ -5,6 +5,7 @@ const staticFiles = require('koa-static')
 const router = require('koa-router')()
 const BodyParser = require('koa-bodyparser');
 const {run, refresh} = require('../libs/funds.js')
+const nhg = require('../libs/nhg.js')
 
 const bodyparser = new BodyParser();
 const app = new Koa()
@@ -23,6 +24,28 @@ router.get('/list', async (ctx, next) => {
     await ctx.render('list', {
         ...data
     })
+})
+
+router.get('/nhg', async (ctx, next) => {
+    const list = await nhg.getList()
+    await ctx.render('nhg', {
+        list
+    })
+})
+router.post('/nhg/:option', async (ctx, next) => {
+    const {params, body} = ctx.request
+    const {option} = params;
+    const {price, time} = body;
+    if (option === 'del') await nhg.delList({
+        time,
+        price
+    })
+    if (option === 'add') await nhg.addList({
+        time,
+        price
+    })
+    ctx.set("Content-Type", "application/json")
+    ctx.body = JSON.stringify({})
 })
 
 router.post('/refresh/:code', async (ctx, next) => {
